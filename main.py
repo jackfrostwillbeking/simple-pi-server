@@ -7,7 +7,6 @@ SOME_API_KEY = os.getenv('SOME_API_KEY', None)
 
 @app.route("/")
 def hello():
-    MESSAGE = subprocess.call('dpkg -l|grep openssh-server', shell=True)
     return MESSAGE
 
 if __name__ == "__main__":
