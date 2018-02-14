@@ -1,12 +1,11 @@
 from flask import Flask
 import os
 import subprocess
-command = "dpkg -l"
+
 app = Flask(__name__)
 MESSAGE = os.getenv('MESSAGE', 'Cannot load the env')
 SOME_API_KEY = os.getenv('SOME_API_KEY', None)
-PACKAGE_LIST = subprocess.check_output(['dpkg','-l'])
-SSH_PACKAGE = subprocess.check_output(['grep','ssh-server',PACKAGE_LIST])
+SSH_PACKAGE = subprocess.check_output(['dpkg','-l','openssh-server'])
 @app.route("/")
 def hello():
     #return MESSAGE
